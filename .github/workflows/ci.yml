@@ -14,7 +14,7 @@ jobs:
 
     env:
       DATABASE_URL: postgresql://postgres:postgres@localhost:5432/mini_task_db
-    
+
     services:
       postgres:
         image: postgres:17
@@ -46,9 +46,12 @@ jobs:
       - name: Generate Prisma Client
         run: npx prisma generate
 
-      - name: Check application
+      - name: Apply database migrations
+        run: npx prisma migrate deploy
+
+      - name: Check application syntax
         run: node --check src/server.js
-        
+
       - name: Run tests
         run: npm test
 
