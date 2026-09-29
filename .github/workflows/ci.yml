@@ -12,8 +12,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-  env:
-    DATABASE_URL: postgresql://postgres:postgres@localhost:5432/mini_task_db
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/mini_task_db
 
     steps:
       - name: Checkout code
